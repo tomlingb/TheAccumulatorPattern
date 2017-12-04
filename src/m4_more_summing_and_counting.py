@@ -12,8 +12,8 @@ in its "in graphics" form:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Geoffrey Tomlinson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
 import builtins  # Never necessary, but here for pedagogical reasons
@@ -89,8 +89,9 @@ def run_test_sum_from():
     print('Test 4 expected (from formula):', answer_from_formula)
     print('       actual (from my code):  ', answer_from_my_code)
 
+
 # ----------------------------------------------------------------------
-# TODO: 2.
+# DONE: 2.
 #   When you have READ the above  run_test_sum_from  function,
 #   asking questions as needed, and you feel that you (mostly, at least)
 #   understand it, and you feel that you understand from the example:
@@ -113,8 +114,12 @@ def sum_from(m, n):
     Example:
         sum_from(6, 9) returns 6 + 7 + 8 + 9, that is, 30.
     """
+    total = 0
+    for k in range(n - m + 1):
+        total = total + (m + k)
+    return total
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT:  Your solution MUST
