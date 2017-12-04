@@ -116,7 +116,7 @@ def sum_more_cosines(m, n):
 def run_test_count_sines_from():
     """ Tests the   count_sines_from   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONe: 4. Implement this TEST function.
     #   It TESTS the  count_sines_from  function defined below.
     #   Include at least **   6   ** tests (we wrote one for you).
     #              ** Yes, 6 (six) tests. **
@@ -139,6 +139,16 @@ def run_test_count_sines_from():
     # Below this comment, add 5 more test cases of your own choosing.
     # ------------------------------------------------------------------
 
+    expected = 3
+    answer = count_sines_from(4, 6)
+    print('Test 2 expected:', expected)
+    print('         actual:', answer)
+
+    expected = 1
+    answer = count_sines_from(9, 9)
+    print('Test 3 expected:', expected)
+    print('         actual:', answer)
+
 
 def count_sines_from(m, n):
     """
@@ -159,8 +169,15 @@ def count_sines_from(m, n):
       -- count_sines_from(7, 7)  returns  0
       -- count_sines_from(9, 9)  returns  1
     """
+
+    total = 0
+    for k in range(n - m + 1):
+        if math.sin(m + k) < 0.5:
+            total = total + 1
+    return total
+
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
