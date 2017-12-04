@@ -326,24 +326,47 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
 
-    # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
-    #          Tests have been written for you (above).
-    #
-    # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
-    #             as in   draw_row_of_circles   in m1e,
-    #             instead of directly using the loop variable.
-    #
-    ####################################################################
-    # HINT: To figure out the code that computes the necessary
-    #       endpoints for each line,
-    #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
-    ####################################################################
-    # ------------------------------------------------------------------
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    window.render()
 
-    # ----------------------------------------------------------------------
-    # Calls  main  to start the ball rolling.
-    # ----------------------------------------------------------------------
+    counter = 1
+    for k in range(n):
+        r1height = rectangle1.get_height()
+        r1width = rectangle1.get_width()
+        r1cent = rectangle1.get_center()
+        leftpoint = rg.Point(r1cent.x - r1width / 2 * k,
+                             r1cent.y - r1height / 2
+                             * k)
+        r2cent = rectangle2.get_center()
+        line = rg.Line(leftpoint, r2cent)
+        if counter % 2 == 0:
+            counter = counter + 1
+            line.color = rectangle1
+        else:
+            counter + 1
+            line.color = rectangle2
+        line.thickness = 5
+        line.attach_to(window)
+        window.render()
 
+        # ------------------------------------------------------------------
+        # TODO: 5. Implement and test this function.
+        #          Tests have been written for you (above).
+        #
+        # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
+        #             as in   draw_row_of_circles   in m1e,
+        #             instead of directly using the loop variable.
+        #
+        ####################################################################
+        # HINT: To figure out the code that computes the necessary
+        #       endpoints for each line,
+        #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
+        ####################################################################
+        # ------------------------------------------------------------------
 
-main()
+        # ----------------------------------------------------------------------
+        # Calls  main  to start the ball rolling.
+        # ----------------------------------------------------------------------
+
+    main()
