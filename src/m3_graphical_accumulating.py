@@ -99,8 +99,8 @@ def draw_parallel_lines(n, point, length, window):
     for k in range(n):
         right_most_point = rg.Point(point.x + length, point.y + 30)
         point.y = point.y + 30
-        circle = rg.Line(point, right_most_point)
-        circle.attach_to(window)
+        line = rg.Line(point, right_most_point)
+        line.attach_to(window)
         window.render()
         # ------------------------------------------------------------------
         # DONE: 2. Implement and test this function.
@@ -169,7 +169,9 @@ def draw_lines(n, point, window):
     """
 
     for k in range(n):
-        circle = rg.Circle(point)
+        right_most_point = rg.Point(point.x + 100, )
+        line = rg.Line(point, right_most_point)
+
         # ------------------------------------------------------------------
         # TODO: 3. Implement and test this function.
         #          Tests have been written for you (above).
