@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python. 
   
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Geoffrey Tomlinson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -97,20 +97,29 @@ def draw_squares_from_circle(n, circle, window):
       :type circle: rg.Circle
       :type window: rg.RoseWindow
     """
-    # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
-    #          Tests have been written for you (above).
-    #
-    # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
-    #             as in   draw_row_of_circles   in m1e,
-    #             instead of directly using the loop variable.
-    #
-    ####################################################################
-    # HINT: To figure out the code that computes the necessary
-    #       positions of each square,
-    #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
-    ####################################################################
-    # ------------------------------------------------------------------
+
+    circle.attach_to(window)
+    window.render()
+    for k in range(n):
+        scent = rg.Point(circle.center.x + circle.radius * k,
+                         circle.center.y + circle.radius * k)
+        square = rg.Square(scent, circle.radius * 2)
+        square.attach_to(window)
+        window.render()
+        # ------------------------------------------------------------------
+        # DONE: 2. Implement and test this function.
+        #          Tests have been written for you (above).
+        #
+        # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
+        #             as in   draw_row_of_circles   in m1e,
+        #             instead of directly using the loop variable.
+        #
+        ####################################################################
+        # HINT: To figure out the code that computes the necessary
+        #       positions of each square,
+        #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
+        ####################################################################
+        # ------------------------------------------------------------------
 
 
 def run_test_draw_circles_from_rectangle():
