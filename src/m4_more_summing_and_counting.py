@@ -211,7 +211,7 @@ def factorial(n):
 def run_test_count_cosines_from():
     """ Tests the   count_cosines_from   function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # DONE: 6. Implement this TEST function.
     #   It TESTS the  count_cosines_from  function defined below.
     #   Include at least **   6   ** tests (we wrote one for you).
     #              ** Yes, 6 (six) tests. **
@@ -245,6 +245,31 @@ def run_test_count_cosines_from():
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
+    expected = 3
+    answer = count_cosines_from(3, 9, 0.27)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 4
+    answer = count_cosines_from(4, 8, -.5)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 0
+    answer = count_cosines_from(8, 9, 0.5)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 2
+    answer = count_cosines_from(3, 9, 0.29)
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+
+    expected = 1
+    answer = count_cosines_from(1, 1, 0)
+    print('Test 6 expected:', expected)
+    print('       actual:  ', answer)
+
     # ------------------------------------------------------------------
     # TO DO: 6 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
@@ -270,8 +295,14 @@ def count_cosines_from(m, n, x):
       -- count_cosines_from(3, 9, 0.27)  returns  3
       -- count_cosines_from(4, 8, -0.5)  returns  4
     """
+
+    number = 0
+    for k in range(n - m + 1):
+        if math.cos(m + k) > x:
+            number = number + 1
+    return number
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
