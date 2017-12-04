@@ -133,7 +133,7 @@ def run_test_draw_circles_from_rectangle():
     window = rg.RoseWindow(720, 500)
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # DONE: 3. Implement this TEST function.
     #   It TESTS the  draw_circles_from_rectangle  function
     #   defined below.  Include at least **   3   ** tests, of which
     #      ***  at least TWO tests are on ONE window and
@@ -216,13 +216,25 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     for k in range(m):
         rcent = rectangle.get_center()
         rheight = rectangle.get_height()
-        rwidth = rectangle.get_width()
-        circle = rg.Circle(rg.Point(rcent.x - rheight * (k + 1), rcent.y),
-                           rheight / 2)
+        rtopleft = rectangle.get_upper_left_corner()
+        ccent = rg.Point(rtopleft.x - rheight / 2 * (2 * k + 1), rcent.y)
+        circle = rg.Circle(ccent, rheight / 2)
+        circle.fill_color = rectangle.fill_color
         circle.attach_to(window)
         window.render()
+
+    for k in range(n):
+        rcent = rectangle.get_center()
+        rwidth = rectangle.get_width()
+        rtopright = rectangle.get_upper_right_corner()
+        ccent = rg.Point(rcent.x, rtopright.y - rwidth / 2 * (2 * k + 1))
+        circle = rg.Circle(ccent, rwidth / 2)
+        circle.outline_color = rectangle.outline_color
+        circle.attach_to(window)
+        window.render()
+
         # ------------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # DONE: 4. Implement and test this function.
         #          Tests have been written for you (above).
         #
         # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
