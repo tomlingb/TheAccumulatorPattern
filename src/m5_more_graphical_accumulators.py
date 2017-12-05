@@ -335,22 +335,24 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
         r1height = rectangle1.get_height()
         r1width = rectangle1.get_width()
         r1cent = rectangle1.get_center()
-        leftpoint = rg.Point(r1cent.x + r1width / 2 * k,
-                             r1cent.y + r1height / 2 * k)
         r2cent = rectangle2.get_center()
-        line = rg.Line(leftpoint, r2cent)
+        leftpoint = rg.Point(r1cent.x - r1width / 2 * k,
+                             r1cent.y + r1height / 2 * k)
+        rightpoint = rg.Point(r2cent.x - r1width / 2 * k,
+                              r2cent.y + r1height / 2 * k)
+        line = rg.Line(leftpoint, rightpoint)
         if counter % 2 == 0:
             counter = counter + 1
-            line.color = rectangle1.outline_color
-        else:
-            counter + 1
             line.color = rectangle2.outline_color
+        else:
+            counter = counter + 1
+            line.color = rectangle1.outline_color
         line.thickness = 5
         line.attach_to(window)
         window.render()
 
         # ------------------------------------------------------------------
-        # TODO: 5. Implement and test this function.
+        # DONE: 5. Implement and test this function.
         #          Tests have been written for you (above).
         #
         # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
